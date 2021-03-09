@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/nearby-transit');
+mongoose.connect('mongodb://localhost/nearby-transit', { useUnifiedTopology: true, useNewUrlParser: true });
 
 const optionsSchema = mongoose.Schema({
   name: String,
@@ -14,10 +14,22 @@ const schema = mongoose.Schema({
 
 const nearbyTransitModel = mongoose.model('nearby-transit', schema);
 
-const getNearbyTransitOptions = async id => (
-  await nearbyTransitModel.findOne({_id: id})
-);
+const db = {};
 
-module.exports = {
-  getNearbyTransitOptions
-}
+db.createNearbyTransitOptions = async payload => {
+  return await nearbyTransitModel.create(payload);
+};
+
+db.getNearbyTransitOptions = async id => {
+  return await nearbyTransitModel.findOne({ _id: id }).exec();
+};
+
+db.updateNearbyTransitOptions = async payload => {
+  return await nearbyTransitModel.update({ _id: payload._id }, payload).exec();
+};
+
+db.deleteNearbyTransitOptions = async id => {
+  return await nearbyTransitModel.deleteOne({ _id: payload._id }).exec();
+};
+
+module.exports = db;

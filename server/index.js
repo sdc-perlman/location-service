@@ -3,9 +3,9 @@ const path = require('path')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3002;
-const { getNearbyTransitOptions } = require('../db/index');
 const app = express();
 const axios = require('axios');
+const controller = require('./controller.js');
 require('dotenv').config({ path: path.join(__dirname, '../', '.env')});
 
 app.use(cors());
@@ -14,27 +14,12 @@ app.use('/buildings/:workspaceId', express.static(path.join(__dirname, '../', 'p
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/api/getNearbyTransitOptions/:id', async (req, res) => {
-  const { id } = req.params;
-  const response = await getNearbyTransitOptions(id);
-  if (response) {
-    res.status(200).json(response);
-  } else {
-    res.status(400).send('Unable to find ID');
-  }
-});
+app.get('/api/nearbyworkspaces/buildings/:id', controller.getNearbyBuildings);
 
-app.get('/api/nearbyworkspaces/buildings/:id', async (req, res) => {
-  const { id } = req.params;
-  const endpoint = process.env.NEARBY_WORKSPACES + id || `http://localhost:5001/api/nearbyworkspaces/buildings/${id}`;
-  try {
-    const { data } = await axios.get(endpoint);
-    res.status(200).json(data);
-  } catch(error) {
-    console.log(`Error fetching nearby workspaces: ${error}`);
-    res.status(400).send('Unable to retrieve nearby workspaces');
-  }
-});
+app.post('/api/getNearbyTransitOptions/:id', controller.createNearbyTransitOptions);
+app.get('/api/getNearbyTransitOptions/:id', controller.getNearbyTransitOptions);
+app.put('/api/getNearbyTransitOptions/:id', controller.updateNearbyTransitOptions);
+app.delete('/api/getNearbyTransitOptions/:id', controller.deleteNearbyTransitOptions);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
