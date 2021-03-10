@@ -200,10 +200,10 @@ curl --location --request POST 'http://localhost:3002/api/getNearbyTransitOption
 
 #### Parameters
 
-| Name | Type | Description                                                                                                                          |
-|------|------|--------------------------------------------------------------------------------------------------------------------------------------|
-| id   | path | id of the location                                                                                                                   |
-| body | body | JSON-formatted object containing key/value pairs for the nearby transit option, the object must not contain a key/value pair for _id |
+| Name | Type | Description                                                                                                                            |
+|------|------|----------------------------------------------------------------------------------------------------------------------------------------|
+| id   | path | id of the location                                                                                                                     |
+| body | body | JSON-formatted object containing key/value pairs for the nearby transit option, the object must not contain a key/value pair for `_id` |
 
 #### Responses
 
