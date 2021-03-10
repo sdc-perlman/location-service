@@ -35,7 +35,7 @@
 
 **Curl**
 ```
-curl -X GET 'http://localhost:3002/api/getNearbyTransitOptions/1'
+curl --location --request GET 'http://localhost:3002/api/getNearbyTransitOptions/1'
 ```
 
 **200**
@@ -87,7 +87,112 @@ curl -X GET 'http://localhost:3002/api/getNearbyTransitOptions/1'
     "__v": 0
 }
 ```
+</details>
 
+<details>
+<summary>POST: /api/getNearbyTransitOptions</summary>
+
+#### Parameters
+
+| Name | Type | Description                                                                                             |
+|------|------|---------------------------------------------------------------------------------------------------------|
+| body | body | JSON-formatted object containing key/value pairs for the nearby transit option, a unique id is required |
+
+#### Response
+
+**Curl**
+```
+curl --location --request POST 'http://localhost:3002/api/getNearbyTransitOptions' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "_id": 105,
+    "nearbyTransitOptions": [
+        {
+            "name": "mustachio",
+            "type": "bike path"
+        },
+        {
+            "name": "denim",
+            "type": "freeway"
+        },
+        {
+            "name": "occupy",
+            "type": "freeway"
+        },
+        {
+            "name": "messenger",
+            "type": "Metro"
+        },
+        {
+            "name": "denim",
+            "type": "Bus"
+        },
+        {
+            "name": "succulents",
+            "type": "freeway"
+        },
+        {
+            "name": "yuccie",
+            "type": "Metro"
+        },
+        {
+            "name": "everyday",
+            "type": "bike path"
+        }
+    ],
+}
+'
+```
+
+**200**
+```
+{
+    "_id": 105,
+    "nearbyTransitOptions": [
+        {
+            "_id": "60483bcd90423050a0d4b73c",
+            "name": "mustachio",
+            "type": "bike path"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b73d",
+            "name": "denim",
+            "type": "freeway"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b73e",
+            "name": "occupy",
+            "type": "freeway"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b73f",
+            "name": "messenger",
+            "type": "Metro"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b740",
+            "name": "denim",
+            "type": "Bus"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b741",
+            "name": "succulents",
+            "type": "freeway"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b742",
+            "name": "yuccie",
+            "type": "Metro"
+        },
+        {
+            "_id": "60483bcd90423050a0d4b743",
+            "name": "everyday",
+            "type": "bike path"
+        }
+    ],
+    "__v": 0
+}
+```
 </details>
 </blockquote>
 </details>

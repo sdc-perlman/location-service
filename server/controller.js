@@ -4,11 +4,15 @@ const controller = {};
 
 controller.createNearbyTransitOptions = async (req, res) => {
   const payload = req.body;
-  const response = await db.createNearbyTransitOptions(payload);
-  if (response) {
-    res.status(200).json(response);
-  } else {
-    res.status(400).send('Unable to find ID');
+  try {
+    const response = await db.createNearbyTransitOptions(payload);
+    if (response) {
+      res.status(200).json(response);
+    } else {
+      res.status(400).send(`Unable to create record with the id ${payload._id}`);
+    }
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 };
 
