@@ -19,11 +19,11 @@
 ### CRUD API
 
 <details>
-  <summary><strong>getNearbyTransitOptions</strong></summary>
+<summary><strong>getNearbyTransitOptions</strong></summary>
 
-  <blockquote>
-    <details>
-      <summary>GET: /api/getNearbyTransitOptions/{id}</summary>
+<blockquote>
+<details>
+<summary>GET: /api/getNearbyTransitOptions/{id}</summary>
 
 #### Parameters
 
@@ -88,8 +88,8 @@ curl -X GET 'http://localhost:3002/api/getNearbyTransitOptions/1'
 }
 ```
 
-    </details>
-  </blockquote>
+</details>
+</blockquote>
 </details>
 
 ## Requirements
