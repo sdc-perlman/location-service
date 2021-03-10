@@ -2,9 +2,9 @@ const db = require('./db/index.js');
 
 const controller = {};
 
-controller.createNearbyTransactionOptions = async (req, res) => {
+controller.createNearbyTransitOptions = async (req, res) => {
   const payload = req.body;
-  const response = await db.createNearbyTransactionOptions(payload);
+  const response = await db.createNearbyTransitOptions(payload);
   if (response) {
     res.status(200).json(response);
   } else {
@@ -22,9 +22,9 @@ controller.getNearbyTransitOptions = async (req, res) => {
   }
 };
 
-controller.updateNearbyTransactionOptions = async (req, res) => {
+controller.updateNearbyTransitOptions = async (req, res) => {
   const payload = req.body;
-  const response = await db.updateNearbyTransactionOptions(payload);
+  const response = await db.updateNearbyTransitOptions(payload);
   if (response) {
     res.status(200).json(response);
   } else {
@@ -32,9 +32,9 @@ controller.updateNearbyTransactionOptions = async (req, res) => {
   }
 };
 
-controller.deleteNearbyTransactionOptions = async (req, res) => {
-  const payload = req.body;
-  const response = await db.deleteNearbyTransactionOptions(payload);
+controller.deleteNearbyTransitOptions = async (req, res) => {
+  const { id } = req.params;
+  const response = await db.deleteNearbyTransitOptions(id);
   if (response) {
     res.status(200).json(response);
   } else {

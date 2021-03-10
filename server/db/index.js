@@ -29,7 +29,7 @@ db.updateNearbyTransitOptions = async payload => {
 };
 
 db.deleteNearbyTransitOptions = async id => {
-  return await nearbyTransitModel.deleteOne({ _id: payload._id }).exec();
+  return await nearbyTransitModel.deleteOne({ _id: id }).exec();
 };
 
 module.exports = db;

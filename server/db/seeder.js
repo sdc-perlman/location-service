@@ -32,7 +32,7 @@ const seedData = (data) => {
 
   seeder.connect(db, () => {
 
-    seeder.loadModels(['./db/index.js']);
+    seeder.loadModels(['./seed/db/index.js']);
 
     seeder.clearModels(['nearby-transit'], () => {
 
