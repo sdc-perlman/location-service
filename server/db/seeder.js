@@ -32,7 +32,7 @@ const seedData = (data) => {
 
   seeder.connect(db, () => {
 
-    seeder.loadModels(['./seed/db/index.js']);
+    seeder.loadModels(['./server/db/index.js']);
 
     seeder.clearModels(['nearby-transit'], () => {
 
@@ -61,7 +61,7 @@ getRandomWords()
 
     ]
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 1; i < 101; i++) {
       let option = {
         _id: i,
         nearbyTransitOptions: []
