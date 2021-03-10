@@ -18,7 +18,7 @@ app.get('/api/nearbyworkspaces/buildings/:id', controller.getNearbyBuildings);
 
 app.post('/api/getNearbyTransitOptions', controller.createNearbyTransitOptions);
 app.get('/api/getNearbyTransitOptions/:id', controller.getNearbyTransitOptions);
-app.put('/api/getNearbyTransitOptions', controller.updateNearbyTransitOptions);
+app.put('/api/getNearbyTransitOptions/:id', controller.updateNearbyTransitOptions);
 app.delete('/api/getNearbyTransitOptions/:id', controller.deleteNearbyTransitOptions);
 
 app.listen(port, () => {

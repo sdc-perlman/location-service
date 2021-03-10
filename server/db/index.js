@@ -24,8 +24,8 @@ db.getNearbyTransitOptions = async id => {
   return await nearbyTransitModel.findOne({ _id: id }).exec();
 };
 
-db.updateNearbyTransitOptions = async payload => {
-  return await nearbyTransitModel.update({ _id: payload._id }, payload).exec();
+db.updateNearbyTransitOptions = async (id, payload) => {
+  return await nearbyTransitModel.update({ _id: id }, payload).exec();
 };
 
 db.deleteNearbyTransitOptions = async id => {

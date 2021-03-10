@@ -27,8 +27,9 @@ controller.getNearbyTransitOptions = async (req, res) => {
 };
 
 controller.updateNearbyTransitOptions = async (req, res) => {
+  const { id } = req.params;
   const payload = req.body;
-  const response = await db.updateNearbyTransitOptions(payload);
+  const response = await db.updateNearbyTransitOptions(id, payload);
   if (response) {
     res.status(200).json(response);
   } else {
