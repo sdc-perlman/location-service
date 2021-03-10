@@ -139,7 +139,7 @@ curl --location --request POST 'http://localhost:3002/api/getNearbyTransitOption
             "name": "everyday",
             "type": "bike path"
         }
-    ],
+    ]
 }
 '
 ```
@@ -200,10 +200,10 @@ curl --location --request POST 'http://localhost:3002/api/getNearbyTransitOption
 
 #### Parameters
 
-| Name | Type | Description                                                                                                                            |
-|------|------|----------------------------------------------------------------------------------------------------------------------------------------|
-| id   | path | id of the location                                                                                                                     |
-| body | body | JSON-formatted object containing key/value pairs for the nearby transit option, the object must not contain a key/value pair for `_id` |
+| Name | Type | Description                                                                                                                          |
+|------|------|--------------------------------------------------------------------------------------------------------------------------------------|
+| id   | path | id of the location                                                                                                                   |
+| body | body | JSON-formatted object containing key/value pairs for the nearby transit option, the object must not contain a key/value pair for _id |
 
 #### Responses
 
@@ -297,6 +297,32 @@ curl --location --request PUT 'http://localhost:3002/api/getNearbyTransitOptions
         }
     ],
     "__v": 0
+}
+```
+</details>
+
+<details>
+<summary>DELETE: /api/getNearbyTransitOptions/{id}</summary>
+
+#### Parameters
+
+| Name | Type | Description                                                                                                                          |
+|------|------|--------------------------------------------------------------------------------------------------------------------------------------|
+| id   | path | id of the location                                                                                                                   |
+
+#### Responses
+
+**Curl**
+```
+curl --location --request DELETE 'http://localhost:3002/api/getNearbyTransitOptions/1'
+```
+
+**200**
+```
+{
+    "n": 1,
+    "ok": 1,
+    "deletedCount": 1
 }
 ```
 </details>
