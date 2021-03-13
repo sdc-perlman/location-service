@@ -334,7 +334,7 @@ curl --location --request DELETE 'http://localhost:3002/api/getNearbyTransitOpti
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
+- Node 15.11.0
 - npm 6.14.7
 - MongoDB 4.4.1
 

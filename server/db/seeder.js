@@ -3,18 +3,15 @@ const https = require('https');
 const db = "mongodb://localhost/nearby-transit";
 
 const transitOptions = [
-  'Metro',
-  'Bus',
+  'metro',
+  'bus',
   'bike path',
   'freeway'
 ]
 
 const getRandomWords = () => {
-
   return new Promise((resolve, reject) => {
-
     https.get('https://hipsum.co/api/?type=hipster-centric&sentences=3', res => {
-
       res.setEncoding("utf8");
       res.on('data', data => {
         resolve(data);
@@ -29,17 +26,11 @@ const generateRandomIndex = (max) => {
 }
 
 const seedData = (data) => {
-
   seeder.connect(db, () => {
-
     seeder.loadModels(['./server/db/index.js']);
-
     seeder.clearModels(['nearby-transit'], () => {
-
       seeder.populateModels(data, () => {
-
         seeder.disconnect();
-
       })
     })
   })
@@ -58,7 +49,6 @@ getRandomWords()
         'model': 'nearby-transit',
         'documents': []
       }
-
     ]
 
     for (let i = 1; i < 101; i++) {

@@ -1,4 +1,5 @@
 const db = require('./db/index.js');
+const axios = require('axios');
 
 const controller = {};
 
@@ -54,7 +55,7 @@ controller.deleteNearbyTransitOptions = async (req, res) => {
 
 controller.getNearbyBuildings = async (req, res) => {
   const { id } = req.params;
-  const endpoint = process.env.NEARBY_WORKSPACES + id || `http://localhost:5001/api/nearbyworkspaces/buildings/${id}`;
+  const endpoint = process.env.NEARBY_WORKSPACES ? process.env.NEARBY_WORKSPACES + id : `http://localhost:5001/api/nearbyworkspaces/buildings/${id}`;
   try {
     const { data } = await axios.get(endpoint);
     res.status(200).json(data);

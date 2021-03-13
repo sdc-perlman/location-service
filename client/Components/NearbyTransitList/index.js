@@ -18,9 +18,9 @@ const NearbyTransitList = ({nearbyTransits}) => {
         <p className="transit-title">NEARBY TRANSIT</p>
       </Wrapper>
       <List>
-      { nearbyTransits.map((option) => (
-          <NearbyTransit key={nearbyTransits.id} option={option} type={types[option.type]}/>
-        )) }
+      {nearbyTransits.map((option, i) => (
+        <NearbyTransit key={i} option={option} type={types[option.type]}/>
+      ))}
       </List>
     </>
   );

@@ -40,14 +40,14 @@ const App = () => {
         console.error(err);
       });
 
-      fetch(`/api/getNearbyTransitOptions/${id}`)
-        .then(data => {
-          return data.json();
-        })
-        .then(json => {
-          const options = json.nearbyTransitOptions;
-          updateNearbyTransits(options);
-        })
+    fetch(`/api/getNearbyTransitOptions/${id}`)
+      .then(data => {
+        return data.json();
+      })
+      .then(json => {
+        const options = json.nearbyTransitOptions;
+        updateNearbyTransits(options);
+      });
 
   }, []);
 

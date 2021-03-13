@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3002;
 const app = express();
-const axios = require('axios');
 const controller = require('./controller.js');
 require('dotenv').config({ path: path.join(__dirname, '../', '.env')});
 
